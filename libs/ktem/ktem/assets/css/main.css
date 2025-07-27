@@ -1,6 +1,9 @@
 :root {
   --main-area-height: calc(100vh - 110px);
+  direction: rtl;
 }
+
+
 
 /* no footer */
 footer {
@@ -27,6 +30,11 @@ footer {
   height: 100% !important; */
 }
 
+input[type="radio"] {
+  margin-left: 5px;
+}
+
+.gradio-container
 /* styling for header bar */
 .header-bar {
   background-color: transparent;
@@ -168,6 +176,27 @@ mark {
   color: var(--body-text-color);
 }
 
+#chat-input textarea{
+ direction: rtl;
+}
+#chat-input button.submit-button{
+  margin-left: 3px;
+  margin-right: 3px;
+  transform: scaleX(-1);
+  -moz-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+}
+
+.secondary-wrap {
+  position: relative;
+}
+
+.secondary-wrap .icon-wrap{
+  /* direction: ltr; */
+  position:absolute;
+  right: 90%;  
+}
+
 /* for setting right-aligned buttons */
 .right-button {
   min-width: 200px !important;
@@ -195,13 +224,13 @@ mark {
 #toggle-dark-button {
   position: fixed;
   top: 6px;
-  right: 30px;
+  left: 30px;
 }
 
 #info-expand-button {
   position: absolute;
   top: 6px;
-  right: 15px;
+  left: 30px;
 }
 
 /* prevent overflow of html info panel */
@@ -212,7 +241,7 @@ mark {
 #chat-expand-button {
   position: absolute;
   top: 6px;
-  right: -10px;
+  left: -10px;
   z-index: 1;
 }
 
@@ -231,14 +260,14 @@ mark {
   position: absolute;
   width: 110px;
   top: 10px;
-  right: 25px;
+  left: 15px;
 }
 
 #citation-dropdown {
   width: min(25%, 100px);
   position: absolute;
   top: 2px;
-  left: 120px;
+  right: 120px;
   height: 35px;
 }
 
@@ -377,9 +406,16 @@ pdfjs-viewer-element {
 
 /* Bot animation */
 
-.message.bot {
-  animation: fadein 1.0s ease-in-out forwards;
-}
+
+
+
+
+
+/* .message.bot button{
+  text-align: right;
+  background-color: blue;
+  direction: rtl !important;
+} */
 
 details.evidence {
   animation: fadein 0.3s ease-in-out forwards;

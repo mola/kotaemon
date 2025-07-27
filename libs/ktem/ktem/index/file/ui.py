@@ -40,8 +40,8 @@ chat_input_focus_js_with_submit = """
 function() {
     let chatInput = document.querySelector("#chat-input textarea");
     let chatInputSubmit = document.querySelector("#chat-input button.submit-button");
-    chatInputSubmit.click();
     chatInput.focus();
+    chatInputSubmit.click();
 }
 """
 
@@ -1631,8 +1631,8 @@ class FileSelector(BasePage):
         self.mode = gr.Radio(
             value=default_mode,
             choices=[
-                ("Search All", "all"),
-                ("Search In File(s)", "select"),
+                (" جستجو همگانی ", "all"),
+                (" جستجو در فایل ها ", "select"),
             ],
             container=False,
         )

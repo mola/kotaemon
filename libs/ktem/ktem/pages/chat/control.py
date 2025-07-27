@@ -51,8 +51,8 @@ class ConversationControl(BasePage):
 
     def on_building_ui(self):
         with gr.Row():
-            title_text = "Conversations" if not KH_DEMO_MODE else "Kotaemon Papers"
-            gr.Markdown("## {}".format(title_text))
+            title_text = "گفتگو ها" if not KH_DEMO_MODE else "Kotaemon Papers"
+            gr.Markdown(f'<div dir="rtl"> {title_text}</div>')
             self.btn_toggle_dark_mode = gr.Button(
                 value="",
                 icon=f"{ASSETS_DIR}/dark_mode.svg",
@@ -66,7 +66,7 @@ class ConversationControl(BasePage):
                 icon=f"{ASSETS_DIR}/expand.svg",
                 scale=1,
                 size="sm",
-                elem_classes=["no-background", "body-text-color"],
+                elem_classes=["no-background", "body-text-color" , "top-left-button"],
                 elem_id="chat-expand-button",
             )
             self.btn_info_expand = gr.Button(
@@ -75,7 +75,7 @@ class ConversationControl(BasePage):
                 min_width=2,
                 scale=1,
                 size="sm",
-                elem_classes=["no-background", "body-text-color"],
+                elem_classes=["no-background", "body-text-color" , "top-left-button"],
                 elem_id="info-expand-button",
             )
 
@@ -102,7 +102,7 @@ class ConversationControl(BasePage):
         with gr.Row() as self._new_delete:
             self.cb_suggest_chat = gr.Checkbox(
                 value=False,
-                label="Suggest chat",
+                label=" پیشنهاد گفتگو ",
                 min_width=10,
                 scale=6,
                 elem_id="suggest-chat-checkbox",
@@ -111,7 +111,7 @@ class ConversationControl(BasePage):
             )
             self.cb_is_public = gr.Checkbox(
                 value=False,
-                label="Share this conversation",
+                label="این گفتگو را ارسال کن",
                 elem_id="is-public-checkbox",
                 container=False,
                 visible=not KH_DEMO_MODE and not KH_SSO_ENABLED,

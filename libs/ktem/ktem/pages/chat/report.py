@@ -12,34 +12,31 @@ class ReportIssue(BasePage):
         self.on_building_ui()
 
     def on_building_ui(self):
-        with gr.Accordion(label="Feedback", open=False, elem_id="report-accordion"):
+        with gr.Accordion(label="بازخورد", open=False, elem_id="report-accordion"):
             self.correctness = gr.Radio(
                 choices=[
-                    ("The answer is correct", "correct"),
-                    ("The answer is incorrect", "incorrect"),
+                    (" پاسخ صحیح است ", "correct"),
+                    (" پاسخ اشتباه است ", "incorrect"),
                 ],
-                label="Correctness:",
+                label="صحت سنجی:",
             )
             self.issues = gr.CheckboxGroup(
                 choices=[
-                    ("The answer is offensive", "offensive"),
-                    ("The evidence is incorrect", "wrong-evidence"),
+                    (" پاسخ نامحترمانه است ", "offensive"),
+                    (" مدارک اشتباه است ", "wrong-evidence"),
                 ],
-                label="Other issue:",
+                label="دیگر مشکلات:",
             )
             self.more_detail = gr.Textbox(
                 placeholder=(
-                    "More detail (e.g. how wrong is it, what is the "
-                    "correct answer, etc...)"
+                    "جزئیات بیشتر (مثلا چقدر اشتباه است، پاسخ صحیح چیست، و غیره...)"
                 ),
                 container=False,
                 lines=3,
             )
-            gr.Markdown(
-                "This will send the current chat and the user settings to "
-                "help with investigation"
-            )
-            self.report_btn = gr.Button("Report")
+            alert_text = "این عمل، چت فعلی و تنظیمات کاربر را برای کمک به تحقیق ارسال خواهد کرد"
+            gr.Markdown(f'<div dir="rtl"> {alert_text}</div>')
+            self.report_btn = gr.Button("گزارش")
 
     def report(
         self,
@@ -83,4 +80,4 @@ class ReportIssue(BasePage):
             )
             session.add(issue)
             session.commit()
-        gr.Info("Thank you for your feedback")
+        gr.Info("از بازخورد شما متشکریم")
