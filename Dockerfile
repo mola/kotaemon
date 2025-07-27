@@ -113,6 +113,6 @@ RUN --mount=type=ssh  \
     curl -fsSL https://ollama.com/install.sh | sh
 
 # RUN nohup bash -c "ollama serve &" && sleep 4 && ollama pull qwen2.5:7b
-RUN nohup bash -c "ollama serve &" && sleep 4 && ollama pull nomic-embed-text
+# RUN nohup bash -c "ollama serve &" && sleep 4 && ollama pull nomic-embed-text
 
 ENTRYPOINT ["sh", "/app/launch.sh"]
